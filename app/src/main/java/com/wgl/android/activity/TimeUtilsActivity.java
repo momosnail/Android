@@ -9,6 +9,9 @@ import com.wgl.mylibrary.utils.TimeUtils;
 
 import java.util.Random;
 
+/**
+ * 时间工具类展示
+ */
 public class TimeUtilsActivity extends BaseActivity {
 
     private TextView mTv_time_convert;
@@ -48,10 +51,10 @@ public class TimeUtilsActivity extends BaseActivity {
     @Override
     public void singleOnclick(View view) {
         int id = view.getId();
-        switch (id){
+        switch (id) {
             case R.id.tv_time_convert:
 //                double random = Math.random();random.nextInt(int bound);
-                Random random=new Random();
+                Random random = new Random();
                 int time = random.nextInt(80);
                 String timeConversion = TimeUtils.getInstance(mContext).timeConversion(time);
                 mTv_time_convert.setText(timeConversion);

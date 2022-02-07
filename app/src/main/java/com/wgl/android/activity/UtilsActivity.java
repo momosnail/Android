@@ -19,6 +19,9 @@ import com.wgl.mylibrary.utils.TimeUtils;
 
 import java.util.ArrayList;
 
+/**
+ * 工具类展示列表
+ */
 public class UtilsActivity extends BaseActivity {
     private Activity mContext;
     private String[] mPermissions = new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_EXTERNAL_STORAGE};
@@ -26,12 +29,11 @@ public class UtilsActivity extends BaseActivity {
     private int count = 0;
     private RecyclerView mRl;
     MainAdapter mAdapter;
+
     @Override
     protected void init() {
-        mContext=this;
+        mContext = this;
         setContentView(R.layout.utils_activity);
-        String s = TimeUtils.getInstance(mContext).timeConversion(40);
-        System.out.println("--------------------------------"+s);
         initView();
         initData();
     }
@@ -84,9 +86,9 @@ public class UtilsActivity extends BaseActivity {
             @Override
             public void onItemChildClick(@NonNull BaseQuickAdapter<?, ?> adapter, @NonNull View view, int position) {
 
-                switch (position){
+                switch (position) {
                     case 0:
-                        Intent intent0=new Intent(UtilsActivity.this,TimeUtilsActivity.class);
+                        Intent intent0 = new Intent(UtilsActivity.this, TimeUtilsActivity.class);
                         startActivity(intent0);
                         break;
                     default:
@@ -97,6 +99,7 @@ public class UtilsActivity extends BaseActivity {
         mRl.setAdapter(mAdapter);
         mAdapter.setList(getData());
     }
+
     public ArrayList<String> getData() {
         arrayList.add("TimeUtils");
         return arrayList;
