@@ -10,4 +10,5 @@
 
     <color name="bg">#232529</color>
     <color name="demo_title">#F7F7F7</color>
+    <color name="text_def">#FE8C00</color>
 </resources>

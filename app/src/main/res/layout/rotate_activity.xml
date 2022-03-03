@@ -1,15 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
-<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent">
+<LinearLayout
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:gravity="center_horizontal">
+
 
     <include layout="@layout/titlebar" />
 
     <RelativeLayout
         android:layout_width="36dp"
         android:layout_height="36dp"
-        android:layout_gravity="center_horizontal"
         android:layout_marginTop="20dp"
         android:includeFontPadding="false">
 
@@ -26,4 +30,32 @@
             android:includeFontPadding="false"
             android:src="@drawable/home_loading_f" />
     </RelativeLayout>
+
+    <RelativeLayout
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="20dp">
+        <ImageView
+            android:id="@+id/iv_demonstration_bg"
+            android:layout_centerInParent="true"
+            android:layout_width="476dp"
+            android:layout_height="476dp"
+            android:includeFontPadding="false"/>
+
+        <TextView
+            android:id="@+id/tv_demonstration"
+            android:layout_width="385dp"
+            android:layout_height="385dp"
+            android:layout_centerInParent="true"
+            android:background="@drawable/home_circle_bg"
+            android:fontFamily="@font/pingfang_regular"
+            android:gravity="center"
+            android:includeFontPadding="false"
+            android:text="@string/demonstration"
+            android:letterSpacing="0.1"
+            android:textColor="@color/text_def"
+            android:textSize="36dp" />
+
+    </RelativeLayout>
 </LinearLayout>
+</ScrollView>

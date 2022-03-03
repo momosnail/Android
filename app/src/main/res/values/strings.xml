@@ -9,5 +9,6 @@
     <string name="time_utils">TimeUtils</string>
     <string name="first_method">第一种方法</string>
     <string name="second_method">第二种方法</string>
+    <string name="demonstration">演示</string>
 
 </resources>
