@@ -14,6 +14,6 @@
   - RepeatOnclickActivity：防重复点击，包含Switch控件
 
   ### Animation
-  - RotateActivity:图片360度旋转动画
-  - RotateActivity:点击控件缩放
+  - RotateActivity: 图片360度旋转动画
+  - RotateActivity: 点击控件缩放
   
