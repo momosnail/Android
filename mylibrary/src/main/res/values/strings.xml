@@ -1,4 +1,4 @@
 <resources>
     <string name="app_name">Android</string>
-
+    <string name="quick_onclick_msg">手速过快：间隔两秒才能再次点击！</string>
 </resources>

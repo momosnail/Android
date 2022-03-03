@@ -16,7 +16,7 @@ public class BaseApplication extends Application {
 
     private static BaseApplication sInstance;
     private Handler mHandler;
-
+    public static int TIME_INTERVAL=2000;
     public static BaseApplication getInstance() {
         return sInstance;
     }
@@ -27,8 +27,8 @@ public class BaseApplication extends Application {
         super.onCreate();
         sInstance = this;
         AutoSizeConfig.getInstance()
-                .setDesignWidthInDp(1138)
-                .setDesignHeightInDp(711);
+                .setDesignWidthInDp(711)
+                .setDesignHeightInDp(1138);
         Typeface tf = ResourcesCompat.getFont(this, R.font.pingfang_regular);
         Toasty.Config.getInstance()
                 .tintIcon(false)

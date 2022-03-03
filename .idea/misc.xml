@@ -3,6 +3,18 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/GitHub/Android/app/src/main/res/drawable/switch_custom_thumb_selector.xml" value="0.2335" />
+        <entry key="..\:/GitHub/Android/app/src/main/res/drawable/switch_custom_track_selector.xml" value="0.2335" />
+        <entry key="..\:/GitHub/Android/app/src/main/res/layout/animation_activity.xml" value="0.22708333333333333" />
+        <entry key="..\:/GitHub/Android/app/src/main/res/layout/main_activity.xml" value="0.35520833333333335" />
+        <entry key="..\:/GitHub/Android/app/src/main/res/layout/main_item.xml" value="0.22708333333333333" />
+        <entry key="..\:/GitHub/Android/app/src/main/res/layout/onclick_activity.xml" value="0.22708333333333333" />
+        <entry key="..\:/GitHub/Android/app/src/main/res/layout/repeat_onclick_activity.xml" value="0.425" />
+        <entry key="..\:/GitHub/Android/app/src/main/res/layout/timeutils_activity.xml" value="0.22708333333333333" />
+        <entry key="..\:/GitHub/Android/app/src/main/res/layout/titlebar.xml" value="0.22708333333333333" />
+        <entry key="..\:/GitHub/Android/app/src/main/res/layout/utils_activity.xml" value="0.22708333333333333" />
+        <entry key="..\:/GitHub/Android/app/src/main/res/layout/utils_item.xml" value="0.22708333333333333" />
+        <entry key="..\:/GitHub/Android/app/src/main/res/layout/view_activity.xml" value="0.22708333333333333" />
         <entry key="..\:/codes/Android/Android/app/src/main/res/layout/main_activity.xml" value="0.3917572463768116" />
         <entry key="..\:/codes/Android/Android/app/src/main/res/layout/main_item.xml" value="0.3917572463768116" />
         <entry key="..\:/codes/Android/Android/app/src/main/res/layout/timeutils_activity.xml" value="0.3917572463768116" />

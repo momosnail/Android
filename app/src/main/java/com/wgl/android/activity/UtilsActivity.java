@@ -4,6 +4,8 @@ import android.Manifest;
 import android.app.Activity;
 import android.content.Intent;
 import android.view.View;
+import android.widget.ImageView;
+import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.DiffUtil;
@@ -13,9 +15,10 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.listener.OnItemChildClickListener;
 import com.wgl.android.R;
+import com.wgl.android.activity.utils.TimeUtilsActivity;
 import com.wgl.android.adapter.MainAdapter;
+import com.wgl.android.adapter.UtilsAdapter;
 import com.wgl.mylibrary.activity.BaseActivity;
-import com.wgl.mylibrary.utils.TimeUtils;
 
 import java.util.ArrayList;
 
@@ -28,7 +31,9 @@ public class UtilsActivity extends BaseActivity {
     public static ArrayList<String> arrayList = new ArrayList<>();
     private int count = 0;
     private RecyclerView mRl;
-    MainAdapter mAdapter;
+    UtilsAdapter mAdapter;
+    private TextView mTv_title;
+    private ImageView mIv_return;
 
     @Override
     protected void init() {
@@ -40,6 +45,8 @@ public class UtilsActivity extends BaseActivity {
 
     private void initView() {
         mRl = findViewById(R.id.rl);
+        mTv_title = findViewById(R.id.tv_title);
+        mIv_return = findViewById(R.id.iv_return);
     }
 
     @Override
@@ -51,12 +58,30 @@ public class UtilsActivity extends BaseActivity {
     }
 
     private void initData() {
+        initTitle();
         initRecycleView();
         onclickListener();
     }
 
     private void onclickListener() {
+        mIv_return.setOnClickListener(this);
+        mIv_return.setOnTouchListener(this);
+    }
 
+    private void initTitle() {
+        mTv_title.setText(R.string.utils);
+    }
+
+    @Override
+    public void singleOnclick(View view) {
+        int id = view.getId();
+        switch (id) {
+            case R.id.iv_return:
+                finish();
+                break;
+            default:
+                break;
+        }
     }
 
     @Override
@@ -68,7 +93,7 @@ public class UtilsActivity extends BaseActivity {
         arrayList.clear();
         mRl.setLayoutManager(new LinearLayoutManager(this));
         mRl.setHasFixedSize(true); //确保每个item尺寸不变
-        mAdapter = new MainAdapter(mContext);
+        mAdapter = new UtilsAdapter(mContext);
         mAdapter.setAnimationEnable(true);
         mAdapter.addChildClickViewIds(R.id.rl_item);
         mAdapter.setDiffCallback(new DiffUtil.ItemCallback<String>() {

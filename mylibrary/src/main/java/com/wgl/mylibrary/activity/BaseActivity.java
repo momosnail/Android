@@ -21,6 +21,7 @@ import com.wgl.mylibrary.R;
 import com.wgl.mylibrary.utils.ActivityUtil;
 import com.wgl.mylibrary.utils.NetBroadcastReceiver;
 import com.wgl.mylibrary.utils.PermissionTool;
+import com.wgl.mylibrary.utils.RepeatClickUtils;
 import com.wgl.mylibrary.utils.ToastUtils;
 
 import es.dmoral.toasty.Toasty;
@@ -73,14 +74,10 @@ public abstract class BaseActivity extends Activity implements NetBroadcastRecei
 
     @Override
     public void onClick(View view) {
-
-        if (System.currentTimeMillis() - mLastClickTime > TIME_INTERVAL) {
-            //to do
-            mLastClickTime = System.currentTimeMillis();
+        if (RepeatClickUtils.avoidRepeatClick(view)){
             singleOnclick(view);
-        } else {
-//            Toast.makeText(mContext, "你的手速超过了中国13亿人民！", Toast.LENGTH_LONG).show();
-            toast("手速过快：你的手速超过了中国13亿人民！");
+        }else {
+            toastWarning(R.string.quick_onclick_msg);
         }
     }
 
@@ -217,24 +214,108 @@ public abstract class BaseActivity extends Activity implements NetBroadcastRecei
     }
 
     public void toastError(String msg) {
-        Toasty.error(mContext, msg, Toast.LENGTH_SHORT, true).show();
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                Toasty.error(mContext, msg, Toast.LENGTH_SHORT, true).show();
+            }
+        });
+    }
+
+    public void toastError(int msgId) {
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                String msg = getResources().getString(msgId);
+                Toasty.error(mContext, msg, Toast.LENGTH_SHORT, true).show();
+            }
+        });
+
     }
 
     public void toastWarning(String msg) {
-        Toasty.warning(mContext, msg, Toast.LENGTH_SHORT, true).show();
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                Toasty.warning(mContext, msg, Toast.LENGTH_SHORT, true).show();
+            }
+        });
+    }
+
+    public void toastWarning(int msgId) {
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                String msg = getResources().getString(msgId);
+                Toasty.warning(mContext, msg, Toast.LENGTH_SHORT, true).show();
+            }
+        });
+
     }
 
     public void toastInfo(String msg) {
-        Toasty.info(mContext, msg, Toast.LENGTH_SHORT, true).show();
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                Toasty.info(mContext, msg, Toast.LENGTH_SHORT, true).show();
+
+            }
+        });
+    }
+
+    public void toastInfo(int msgId) {
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                String msg = getResources().getString(msgId);
+                Toasty.info(mContext, msg, Toast.LENGTH_SHORT, true).show();
+            }
+        });
+
     }
 
     public void toastNormal(String msg) {
-        Toasty.normal(mContext, msg).show();
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                Toasty.normal(mContext, msg).show();
+
+            }
+        });
+    }
+
+    public void toastNormal(int msgId) {
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                String msg = getResources().getString(msgId);
+                Toasty.normal(mContext, msg).show();
+            }
+        });
+
     }
 
     public void toastNormalIcon(String msg) {
-        Drawable icon = getResources().getDrawable(R.drawable.ic_pets_white_48dp);
-        Toasty.normal(mContext, msg, icon).show();
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                Drawable icon = getResources().getDrawable(R.drawable.ic_pets_white_48dp);
+                Toasty.normal(mContext, msg, icon).show();
+            }
+        });
+
+    }
+
+    public void toastNormalIcon(int msgId) {
+        runOnUiThread(new Runnable() {
+            @Override
+            public void run() {
+                String msg = getResources().getString(msgId);
+                Drawable icon = getResources().getDrawable(R.drawable.ic_pets_white_48dp);
+                Toasty.normal(mContext, msg, icon).show();
+            }
+        });
+
     }
 
 }

@@ -13,6 +13,7 @@
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
         android:label="@string/app_name"
+        android:name="com.wgl.mylibrary.application.BaseApplication"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/Theme.Android" >
@@ -34,7 +35,27 @@
             android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen"/>
 
         <activity
-            android:name=".activity.TimeUtilsActivity"
+            android:name=".activity.utils.TimeUtilsActivity"
+            android:exported="true"
+            android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen"/>
+
+        <activity
+            android:name=".activity.ViewActivity"
+            android:exported="true"
+            android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen"/>
+
+        <activity
+            android:name=".activity.view.OnclickActivity"
+            android:exported="true"
+            android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen"/>
+
+        <activity
+            android:name=".activity.view.onclick.RepeatOnclickActivity"
+            android:exported="true"
+            android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen"/>
+
+        <activity
+            android:name=".activity.view.animation.AnimationActivity"
             android:exported="true"
             android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen"/>
     </application>

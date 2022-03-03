@@ -1,6 +1,11 @@
 <resources>
     <string name="app_name">Android</string>
     <string name="utils">Utils</string>
+    <string name="view">View</string>
+    <string name="onclick">Onclick</string>
+    <string name="repeatOnclick">RepeatOnclickActivity</string>
     <string name="time_utils">TimeUtils</string>
+    <string name="first_method">第一种方法</string>
+    <string name="second_method">第二种方法</string>
 
 </resources>
