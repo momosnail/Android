@@ -4,7 +4,9 @@ import android.view.View;
 
 import com.wgl.mylibrary.application.BaseApplication;
 
-
+/**
+ * 防重复点击工具类
+ */
 public class RepeatClickUtils {
     public static boolean avoidRepeatClick(View view){
         boolean flag = false;
