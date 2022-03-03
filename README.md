@@ -15,4 +15,5 @@
 
   ### Animation
   - RotateActivity:图片360度旋转动画
+  - RotateActivity:点击控件缩放
   
