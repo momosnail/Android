@@ -2,28 +2,19 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:background="@color/bg"
+    android:orientation="vertical"
+    android:padding="15dp">
 
     <include layout="@layout/titlebar" />
 
-    <RelativeLayout
-        android:layout_width="36dp"
-        android:layout_height="36dp"
-        android:layout_gravity="center_horizontal"
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/rl"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_marginLeft="80dp"
+        android:layout_marginRight="80dp"
         android:layout_marginTop="20dp"
-        android:includeFontPadding="false">
+        android:paddingBottom="12dp" />
 
-        <ImageView
-            android:id="@+id/iv_loading"
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:includeFontPadding="false" />
-
-        <ImageView
-
-            android:layout_width="match_parent"
-            android:layout_height="match_parent"
-            android:includeFontPadding="false"
-            android:src="@drawable/home_loading_f" />
-    </RelativeLayout>
 </LinearLayout>

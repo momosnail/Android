@@ -1,4 +1,4 @@
-package com.wgl.android.activity;
+package com.wgl.android.activity.view;
 
 import android.Manifest;
 import android.app.Activity;
@@ -15,8 +15,7 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.listener.OnItemChildClickListener;
 import com.wgl.android.R;
-import com.wgl.android.activity.view.AnimationActivity;
-import com.wgl.android.activity.view.OnclickActivity;
+import com.wgl.android.activity.view.animation.RotateActivity;
 import com.wgl.android.adapter.UtilsAdapter;
 import com.wgl.mylibrary.activity.BaseActivity;
 
@@ -25,7 +24,7 @@ import java.util.ArrayList;
 /**
  * 工具类展示列表
  */
-public class ViewActivity extends BaseActivity {
+public class AnimationActivity extends BaseActivity {
     private Activity mContext;
     private String[] mPermissions = new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_EXTERNAL_STORAGE};
     public static ArrayList<String> arrayList = new ArrayList<>();
@@ -38,7 +37,7 @@ public class ViewActivity extends BaseActivity {
     @Override
     protected void init() {
         mContext = this;
-        setContentView(R.layout.view_activity);
+        setContentView(R.layout.animation_activity);
         initView();
         initData();
     }
@@ -69,7 +68,7 @@ public class ViewActivity extends BaseActivity {
     }
 
     private void initTitle() {
-        mTv_title.setText(R.string.view);
+        mTv_title.setText(R.string.animation);
     }
 
     @Override
@@ -113,12 +112,8 @@ public class ViewActivity extends BaseActivity {
 
                 switch (position) {
                     case 0:
-                        Intent intent0 = new Intent(ViewActivity.this, OnclickActivity.class);
+                        Intent intent0 = new Intent(AnimationActivity.this, RotateActivity.class);
                         startActivity(intent0);
-                        break;
-                    case 1:
-                        Intent intent1=new Intent(ViewActivity.this, AnimationActivity.class);
-                        startActivity(intent1);
                         break;
                     default:
                         break;
@@ -130,8 +125,7 @@ public class ViewActivity extends BaseActivity {
     }
 
     public ArrayList<String> getData() {
-        arrayList.add("OnClickActivity");
-        arrayList.add("AnimationActivity");
+        arrayList.add("RotateActivity");
         return arrayList;
     }
 }

@@ -11,7 +11,7 @@ import com.bumptech.glide.Glide;
 import com.wgl.android.R;
 import com.wgl.mylibrary.activity.BaseActivity;
 
-public class AnimationActivity extends BaseActivity {
+public class RotateActivity extends BaseActivity {
 
     private ImageView mIv_return;
     private TextView mTv_title;
@@ -19,14 +19,19 @@ public class AnimationActivity extends BaseActivity {
 
     @Override
     protected void init() {
-        setContentView(R.layout.animation_activity);
+        setContentView(R.layout.rotate_activity);
         initView();
         initOnclick();
         initData();
     }
 
     private void initData() {
+        initTitle();
         initAnimation();
+    }
+
+    private void initTitle() {
+        mTv_title.setText(R.string.rotate);
     }
 
     private void initOnclick() {
@@ -55,7 +60,7 @@ public class AnimationActivity extends BaseActivity {
      * 初始化动画
      */
     private void initAnimation() {
-        Glide.with(AnimationActivity.this).load(R.drawable.home_loading).into(mIv_loading);
+        Glide.with(RotateActivity.this).load(R.drawable.home_loading).into(mIv_loading);
         // 设置右上角旋转动画
         Animation animation1 = AnimationUtils.loadAnimation(this, R.anim.loading_animation);
         LinearInterpolator lin1 = new LinearInterpolator();//设置动画匀速运动
