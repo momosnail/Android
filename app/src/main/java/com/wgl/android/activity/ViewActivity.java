@@ -15,8 +15,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.listener.OnItemChildClickListener;
 import com.wgl.android.R;
-import com.wgl.android.activity.view.AnimationActivity;
-import com.wgl.android.activity.view.OnclickActivity;
 import com.wgl.android.adapter.UtilsAdapter;
 import com.wgl.mylibrary.activity.BaseActivity;
 

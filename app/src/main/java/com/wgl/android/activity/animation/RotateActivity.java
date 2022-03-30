@@ -1,4 +1,4 @@
-package com.wgl.android.activity.view.animation;
+package com.wgl.android.activity.animation;
 
 import android.view.View;
 import android.view.animation.Animation;

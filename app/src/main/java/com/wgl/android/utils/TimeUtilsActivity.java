@@ -1,4 +1,4 @@
-package com.wgl.android.activity.utils;
+package com.wgl.android.utils;
 
 import android.view.View;
 import android.widget.ImageView;

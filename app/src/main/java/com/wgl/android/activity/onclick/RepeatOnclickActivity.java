@@ -1,4 +1,4 @@
-package com.wgl.android.activity.view.onclick;
+package com.wgl.android.activity.onclick;
 
 import android.os.Handler;
 import android.view.View;

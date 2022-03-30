@@ -35,7 +35,7 @@
             android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen" />
 
         <activity
-            android:name=".activity.utils.TimeUtilsActivity"
+            android:name=".utils.TimeUtilsActivity"
             android:exported="true"
             android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen" />
 
@@ -45,22 +45,22 @@
             android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen" />
 
         <activity
-            android:name=".activity.view.OnclickActivity"
+            android:name=".activity.OnclickActivity"
             android:exported="true"
             android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen" />
 
         <activity
-            android:name=".activity.view.onclick.RepeatOnclickActivity"
+            android:name=".activity.onclick.RepeatOnclickActivity"
             android:exported="true"
             android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen" />
 
         <activity
-            android:name=".activity.view.AnimationActivity"
+            android:name=".activity.AnimationActivity"
             android:exported="true"
             android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen" />
 
         <activity
-            android:name=".activity.view.animation.RotateActivity"
+            android:name=".activity.animation.RotateActivity"
             android:exported="true"
             android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen" />
     </application>
