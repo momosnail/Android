@@ -63,6 +63,18 @@
             android:name=".activity.animation.RotateActivity"
             android:exported="true"
             android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen" />
+
+         <activity
+            android:name=".activity.OnTouchActivity"
+            android:exported="true"
+            android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen" />
+
+        <activity
+            android:name=".activity.ontouch.SeekBarOnTouchActivity"
+            android:exported="true"
+            android:theme="@android:style/Theme.Black.NoTitleBar.Fullscreen" />
+
+
     </application>
 
 </manifest>

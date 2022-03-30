@@ -3,6 +3,8 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/GitHub/Android/app/src/main/res/drawable/ic_launcher_background.xml" value="0.2335" />
+        <entry key="..\:/GitHub/Android/app/src/main/res/drawable/seekbar_style.xml" value="0.301" />
         <entry key="..\:/GitHub/Android/app/src/main/res/drawable/switch_custom_thumb_selector.xml" value="0.2335" />
         <entry key="..\:/GitHub/Android/app/src/main/res/drawable/switch_custom_track_selector.xml" value="0.2335" />
         <entry key="..\:/GitHub/Android/app/src/main/res/layout/animation_activity.xml" value="0.22708333333333333" />
@@ -11,6 +13,7 @@
         <entry key="..\:/GitHub/Android/app/src/main/res/layout/onclick_activity.xml" value="0.22708333333333333" />
         <entry key="..\:/GitHub/Android/app/src/main/res/layout/repeat_onclick_activity.xml" value="0.425" />
         <entry key="..\:/GitHub/Android/app/src/main/res/layout/rotate_activity.xml" value="0.22708333333333333" />
+        <entry key="..\:/GitHub/Android/app/src/main/res/layout/sb_touch_activity.xml" value="0.41041666666666665" />
         <entry key="..\:/GitHub/Android/app/src/main/res/layout/timeutils_activity.xml" value="0.22708333333333333" />
         <entry key="..\:/GitHub/Android/app/src/main/res/layout/titlebar.xml" value="0.22708333333333333" />
         <entry key="..\:/GitHub/Android/app/src/main/res/layout/utils_activity.xml" value="0.22708333333333333" />

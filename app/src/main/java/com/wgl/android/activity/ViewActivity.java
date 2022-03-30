@@ -21,7 +21,7 @@ import com.wgl.mylibrary.activity.BaseActivity;
 import java.util.ArrayList;
 
 /**
- * 工具类展示列表
+ * View相关Activity类展示列表
  */
 public class ViewActivity extends BaseActivity {
     private Activity mContext;
@@ -111,13 +111,16 @@ public class ViewActivity extends BaseActivity {
 
                 switch (position) {
                     case 0:
-                        Intent intent0 = new Intent(ViewActivity.this, OnclickActivity.class);
-                        startActivity(intent0);
+                        Intent OnclickIntent = new Intent(ViewActivity.this, OnclickActivity.class);
+                        startActivity(OnclickIntent);
                         break;
                     case 1:
-                        Intent intent1=new Intent(ViewActivity.this, AnimationActivity.class);
-                        startActivity(intent1);
+                        Intent AnimationIntent = new Intent(ViewActivity.this, AnimationActivity.class);
+                        startActivity(AnimationIntent);
                         break;
+                    case 2:
+                        Intent OnTouchIntent = new Intent(ViewActivity.this, OnTouchActivity.class);
+                        startActivity(OnTouchIntent);
                     default:
                         break;
                 }
@@ -130,6 +133,7 @@ public class ViewActivity extends BaseActivity {
     public ArrayList<String> getData() {
         arrayList.add("OnClickActivity");
         arrayList.add("AnimationActivity");
+        arrayList.add("OnTouchActivity");
         return arrayList;
     }
 }

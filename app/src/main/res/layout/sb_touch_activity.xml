@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:gravity="center_horizontal"
+    android:orientation="vertical"
+    tools:context=".MainActivity"
+    android:background="@color/black">
+    <include layout="@layout/titlebar" />
+    <TextView
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="50dp"
+        android:text="@string/sb_touch"
+        android:textSize="16dp"
+        android:textColor="@color/white"/>
+    <RelativeLayout
+        android:id="@+id/ll_sb"
+        android:layout_width="400dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="50dp"
+        android:background="@color/purple_200">
+        <SeekBar
+            android:id="@+id/sb_bg_light"
+            android:layout_width="307dp"
+
+            android:layout_height="wrap_content"
+           android:layout_centerVertical="true"
+            android:max="9"
+            android:maxHeight="28dp"
+            android:minHeight="28dp"
+            android:paddingStart="15dp"
+            android:paddingTop="3dp"
+            android:paddingEnd="15dp"
+            android:progress="0"
+            android:progressDrawable="@drawable/seekbar_style"
+            android:thumb="@drawable/setting_seekbar_on" />
+    </RelativeLayout>
+
+</LinearLayout>

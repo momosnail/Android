@@ -6,9 +6,11 @@
     <string name="animation">Animation</string>
     <string name="rotate">Rotate</string>
     <string name="repeatOnclick">RepeatOnclickActivity</string>
+    <string name="seekBarOnTouch">SeekBarOnTouchActivity</string>
     <string name="time_utils">TimeUtils</string>
     <string name="first_method">第一种方法</string>
     <string name="second_method">第二种方法</string>
     <string name="demonstration">演示</string>
+    <string name="sb_touch">扩大seekbar点击范围，父布局不能用 wrap_content </string>
 
 </resources>

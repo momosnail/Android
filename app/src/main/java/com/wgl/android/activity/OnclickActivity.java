@@ -22,7 +22,7 @@ import com.wgl.mylibrary.activity.BaseActivity;
 import java.util.ArrayList;
 
 /**
- * 工具类展示列表
+ * 点击事件类展示列表
  */
 public class OnclickActivity extends BaseActivity {
     private Activity mContext;

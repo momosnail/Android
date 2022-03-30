@@ -15,37 +15,38 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.listener.OnItemChildClickListener;
 import com.wgl.android.R;
-import com.wgl.android.activity.animation.RotateActivity;
-import com.wgl.android.adapter.UtilsAdapter;
+import com.wgl.android.activity.onclick.RepeatOnclickActivity;
+import com.wgl.android.activity.ontouch.SeekBarOnTouchActivity;
+import com.wgl.android.adapter.MainAdapter;
 import com.wgl.mylibrary.activity.BaseActivity;
 
 import java.util.ArrayList;
 
 /**
- * 动画展示列表
+ * 触摸相关Activity类展示列表
  */
-public class AnimationActivity extends BaseActivity {
+public class OnTouchActivity extends BaseActivity {
     private Activity mContext;
     private String[] mPermissions = new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_EXTERNAL_STORAGE};
     public static ArrayList<String> arrayList = new ArrayList<>();
     private int count = 0;
     private RecyclerView mRl;
-    UtilsAdapter mAdapter;
-    private TextView mTv_title;
+    MainAdapter mAdapter;
     private ImageView mIv_return;
+    private TextView mTv_title;
 
     @Override
     protected void init() {
         mContext = this;
-        setContentView(R.layout.animation_activity);
+        setContentView(R.layout.onclick_activity);
         initView();
         initData();
     }
 
     private void initView() {
         mRl = findViewById(R.id.rl);
-        mTv_title = findViewById(R.id.tv_title);
         mIv_return = findViewById(R.id.iv_return);
+        mTv_title = findViewById(R.id.tv_title);
     }
 
     @Override
@@ -62,25 +63,13 @@ public class AnimationActivity extends BaseActivity {
         onclickListener();
     }
 
+    private void initTitle() {
+        mTv_title.setText(R.string.onclick);
+    }
+
     private void onclickListener() {
         mIv_return.setOnClickListener(this);
         mIv_return.setOnTouchListener(this);
-    }
-
-    private void initTitle() {
-        mTv_title.setText(R.string.animation);
-    }
-
-    @Override
-    public void singleOnclick(View view) {
-        int id = view.getId();
-        switch (id) {
-            case R.id.iv_return:
-                finish();
-                break;
-            default:
-                break;
-        }
     }
 
     @Override
@@ -92,7 +81,7 @@ public class AnimationActivity extends BaseActivity {
         arrayList.clear();
         mRl.setLayoutManager(new LinearLayoutManager(this));
         mRl.setHasFixedSize(true); //确保每个item尺寸不变
-        mAdapter = new UtilsAdapter(mContext);
+        mAdapter = new MainAdapter(mContext);
         mAdapter.setAnimationEnable(true);
         mAdapter.addChildClickViewIds(R.id.rl_item);
         mAdapter.setDiffCallback(new DiffUtil.ItemCallback<String>() {
@@ -112,8 +101,8 @@ public class AnimationActivity extends BaseActivity {
 
                 switch (position) {
                     case 0:
-                        Intent intent0 = new Intent(AnimationActivity.this, RotateActivity.class);
-                        startActivity(intent0);
+                        Intent  SeekBarOnTouchIntent = new Intent(OnTouchActivity.this, SeekBarOnTouchActivity.class);
+                        startActivity(SeekBarOnTouchIntent);
                         break;
                     default:
                         break;
@@ -125,7 +114,19 @@ public class AnimationActivity extends BaseActivity {
     }
 
     public ArrayList<String> getData() {
-        arrayList.add("RotateActivity");
+        arrayList.add("SeekBarOnTouchActivity");
         return arrayList;
+    }
+
+
+    @Override
+    public void singleOnclick(View view) {
+        int id = view.getId();
+        switch (id) {
+            case R.id.iv_return:
+                finish();
+            default:
+                break;
+        }
     }
 }
