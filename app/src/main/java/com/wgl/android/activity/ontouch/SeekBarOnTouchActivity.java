@@ -45,8 +45,7 @@ public class SeekBarOnTouchActivity extends BaseActivity {
             public boolean onTouch(View v, MotionEvent event) {
                 Rect seekRect = new Rect();
                 mSb.getHitRect(seekRect);
-                System.out.println("_----------------------------------");
-                if ((event.getY() >= (seekRect.top - 5000)) && (event.getY() <= (seekRect.bottom + 5000))) {
+                if ((event.getY() >= (seekRect.top - 500)) && (event.getY() <= (seekRect.bottom + 500))) {
                     float y = seekRect.top + seekRect.height() / 2;
                     //seekBar only accept relative x
                     float x = event.getX() - seekRect.left;
