@@ -10,7 +10,7 @@ import android.widget.Switch;
 import android.widget.TextView;
 
 import com.wgl.android.R;
-import com.wgl.mylibrary.activity.BaseActivity;
+import com.wgl.tdlib.activity.BaseActivity;
 
 /**
  * 方式1，简单
@@ -111,16 +111,6 @@ public class RepeatOnclickActivity extends BaseActivity {
             default:
                 break;
         }
-    }
-
-    @Override
-    public void passPermissons() {
-
-    }
-
-    @Override
-    public void forbitPermissons() {
-
     }
 
 }

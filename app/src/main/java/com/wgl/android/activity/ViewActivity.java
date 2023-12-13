@@ -1,6 +1,7 @@
 package com.wgl.android.activity;
 
 import android.Manifest;
+import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
 import android.view.View;
@@ -16,7 +17,7 @@ import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.listener.OnItemChildClickListener;
 import com.wgl.android.R;
 import com.wgl.android.adapter.UtilsAdapter;
-import com.wgl.mylibrary.activity.BaseActivity;
+import com.wgl.tdlib.activity.BaseActivity;
 
 import java.util.ArrayList;
 
@@ -47,20 +48,13 @@ public class ViewActivity extends BaseActivity {
         mIv_return = findViewById(R.id.iv_return);
     }
 
-    @Override
-    public void passPermissons() { //权限通过
-        if (count == 0) {
-            ++count;
-            initData();
-        }
-    }
-
     private void initData() {
         initTitle();
         initRecycleView();
         onclickListener();
     }
 
+    @SuppressLint("ClickableViewAccessibility")
     private void onclickListener() {
         mIv_return.setOnClickListener(this);
         mIv_return.setOnTouchListener(this);
@@ -80,11 +74,6 @@ public class ViewActivity extends BaseActivity {
             default:
                 break;
         }
-    }
-
-    @Override
-    public void forbitPermissons() {
-
     }
 
     private void initRecycleView() {

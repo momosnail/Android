@@ -1,12 +1,13 @@
 package com.wgl.android.utils;
 
+import android.annotation.SuppressLint;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
 
 import com.wgl.android.R;
-import com.wgl.mylibrary.activity.BaseActivity;
-import com.wgl.mylibrary.utils.TimeUtils;
+import com.wgl.tdlib.activity.BaseActivity;
+import com.wgl.tdlib.utils.TimeUtils;
 
 import java.util.Random;
 
@@ -27,6 +28,7 @@ public class TimeUtilsActivity extends BaseActivity {
         initData();
     }
 
+    @SuppressLint("ClickableViewAccessibility")
     private void initOnclick() {
         mTv_time_convert.setOnClickListener(this);
         mTv_time_convert.setOnTouchListener(this);
@@ -50,29 +52,15 @@ public class TimeUtilsActivity extends BaseActivity {
     }
 
     @Override
-    public void passPermissons() {
-
-    }
-
-    @Override
-    public void forbitPermissons() {
-
-    }
-
-    @Override
     public void singleOnclick(View view) {
         int id = view.getId();
-        switch (id) {
-            case R.id.iv_return:
-                finish();
-                break;
-            case R.id.tv_time_convert:
-//                double random = Math.random();random.nextInt(int bound);
-                Random random = new Random();
-                int time = random.nextInt(80);
-                String timeConversion = TimeUtils.getInstance(mContext).timeConversion(time);
-                mTv_time_convert.setText(timeConversion);
-                break;
+        if (id == R.id.iv_return) {
+            finish();
+        } else if (id == R.id.tv_time_convert) {//                double random = Math.random();random.nextInt(int bound);
+            Random random = new Random();
+            int time = random.nextInt(80);
+            String timeConversion = TimeUtils.getInstance(mContext).timeConversion(time);
+            mTv_time_convert.setText(timeConversion);
         }
     }
 }

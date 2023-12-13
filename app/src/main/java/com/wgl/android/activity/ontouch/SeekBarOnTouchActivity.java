@@ -1,15 +1,15 @@
 package com.wgl.android.activity.ontouch;
 
+import android.annotation.SuppressLint;
 import android.graphics.Rect;
 import android.view.MotionEvent;
 import android.view.View;
-import android.widget.LinearLayout;
 import android.widget.RelativeLayout;
 import android.widget.SeekBar;
 import android.widget.TextView;
 
 import com.wgl.android.R;
-import com.wgl.mylibrary.activity.BaseActivity;
+import com.wgl.tdlib.activity.BaseActivity;
 
 /**
  * 扩大seekbar的触摸范围
@@ -38,6 +38,7 @@ public class SeekBarOnTouchActivity extends BaseActivity {
         mTv_title.setOnClickListener(this);
     }
 
+    @SuppressLint("ClickableViewAccessibility")
     private void initTouch() {
         mLl_sb.setOnTouchListener(new View.OnTouchListener() {
 
@@ -69,16 +70,5 @@ public class SeekBarOnTouchActivity extends BaseActivity {
         mSb = findViewById(R.id.sb_bg_light);
 
     }
-
-    @Override
-    public void passPermissons() {
-
-    }
-
-    @Override
-    public void forbitPermissons() {
-
-    }
-
 
 }

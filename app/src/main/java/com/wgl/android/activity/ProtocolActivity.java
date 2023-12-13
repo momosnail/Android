@@ -1,9 +1,9 @@
 package com.wgl.android.activity;
 
-import android.Manifest;
 import android.annotation.SuppressLint;
 import android.app.Activity;
 import android.content.Intent;
+import android.util.Pair;
 import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -16,27 +16,26 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.listener.OnItemChildClickListener;
 import com.wgl.android.R;
-import com.wgl.android.activity.animation.RotateActivity;
-import com.wgl.android.adapter.UtilsAdapter;
+import com.wgl.android.adapter.ProtocolAdapter;
 import com.wgl.tdlib.activity.BaseActivity;
 
 import java.util.ArrayList;
 
 /**
- * 动画展示列表
+ * 通讯协议相关Activity类展示列表
  */
-public class AnimationActivity extends BaseActivity {
+public class ProtocolActivity extends BaseActivity {
     private Activity mContext;
-    public static ArrayList<String> arrayList = new ArrayList<>();
+    public static ArrayList<Pair<String, Class<?>>> mArrayList = new ArrayList<>();
     private RecyclerView mRl;
-    UtilsAdapter mAdapter;
+    ProtocolAdapter mAdapter;
     private TextView mTv_title;
     private ImageView mIv_return;
 
     @Override
     protected void init() {
         mContext = this;
-        setContentView(R.layout.animation_activity);
+        setContentView(R.layout.view_activity);
         initView();
         initData();
     }
@@ -46,6 +45,7 @@ public class AnimationActivity extends BaseActivity {
         mTv_title = findViewById(R.id.tv_title);
         mIv_return = findViewById(R.id.iv_return);
     }
+
 
     private void initData() {
         initTitle();
@@ -60,7 +60,7 @@ public class AnimationActivity extends BaseActivity {
     }
 
     private void initTitle() {
-        mTv_title.setText(R.string.animation);
+        mTv_title.setText(R.string.view);
     }
 
     @Override
@@ -71,21 +71,23 @@ public class AnimationActivity extends BaseActivity {
         }
     }
 
+
+
     private void initRecycleView() {
-        arrayList.clear();
+        mArrayList.clear();
         mRl.setLayoutManager(new LinearLayoutManager(this));
         mRl.setHasFixedSize(true); //确保每个item尺寸不变
-        mAdapter = new UtilsAdapter(mContext);
+        mAdapter = new ProtocolAdapter(mContext);
         mAdapter.setAnimationEnable(true);
         mAdapter.addChildClickViewIds(R.id.rl_item);
-        mAdapter.setDiffCallback(new DiffUtil.ItemCallback<String>() {
+        mAdapter.setDiffCallback(new DiffUtil.ItemCallback<Pair<String, Class<?>>>() {
             @Override
-            public boolean areItemsTheSame(@NonNull String oldItem, @NonNull String newItem) {
+            public boolean areItemsTheSame(@NonNull Pair<String, Class<?>> oldItem, @NonNull Pair<String, Class<?>> newItem) {
                 return false;
             }
 
             @Override
-            public boolean areContentsTheSame(@NonNull String oldItem, @NonNull String newItem) {
+            public boolean areContentsTheSame(@NonNull Pair<String, Class<?>> oldItem, @NonNull Pair<String, Class<?>> newItem) {
                 return false;
             }
         });
@@ -93,9 +95,20 @@ public class AnimationActivity extends BaseActivity {
             @Override
             public void onItemChildClick(@NonNull BaseQuickAdapter<?, ?> adapter, @NonNull View view, int position) {
 
-                if (position == 0) {
-                    Intent intent0 = new Intent(AnimationActivity.this, RotateActivity.class);
-                    startActivity(intent0);
+                switch (position) {
+                    case 0:
+                        Intent OnclickIntent = new Intent(ProtocolActivity.this, OnclickActivity.class);
+                        startActivity(OnclickIntent);
+                        break;
+                    case 1:
+                        Intent AnimationIntent = new Intent(ProtocolActivity.this, AnimationActivity.class);
+                        startActivity(AnimationIntent);
+                        break;
+                    case 2:
+                        Intent OnTouchIntent = new Intent(ProtocolActivity.this, OnTouchActivity.class);
+                        startActivity(OnTouchIntent);
+                    default:
+                        break;
                 }
             }
         });
@@ -103,8 +116,8 @@ public class AnimationActivity extends BaseActivity {
         mAdapter.setList(getData());
     }
 
-    public ArrayList<String> getData() {
-        arrayList.add("RotateActivity");
-        return arrayList;
+    public ArrayList<Pair<String, Class<?>>> getData() {
+        mArrayList.add(new Pair<>("USBProtocol", USBProtocolActivity.class));
+        return mArrayList;
     }
 }

@@ -16,4 +16,4 @@ dependencyResolutionManagement {
 }
 rootProject.name = "Android"
 include ':app'
-include ':mylibrary'
+include ':TD_Lib'

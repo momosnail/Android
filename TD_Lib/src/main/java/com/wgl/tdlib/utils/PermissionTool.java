@@ -1,4 +1,4 @@
-package com.wgl.mylibrary.utils;
+package com.wgl.tdlib.utils;
 
 import android.app.Activity;
 import android.app.AlertDialog;

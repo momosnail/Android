@@ -1,10 +1,7 @@
-package com.wgl.mylibrary.activity;
+package com.wgl.tdlib.activity;
 
 import android.annotation.SuppressLint;
 import android.app.Activity;
-import android.content.pm.ActivityInfo;
-import android.content.res.Configuration;
-import android.content.res.Resources;
 import android.graphics.drawable.Drawable;
 import android.os.Build;
 import android.os.Bundle;
@@ -17,12 +14,15 @@ import androidx.annotation.NonNull;
 import androidx.annotation.Nullable;
 import androidx.core.app.ActivityCompat;
 
-import com.wgl.mylibrary.R;
-import com.wgl.mylibrary.utils.ActivityUtil;
-import com.wgl.mylibrary.utils.NetBroadcastReceiver;
-import com.wgl.mylibrary.utils.PermissionTool;
-import com.wgl.mylibrary.utils.RepeatClickUtils;
-import com.wgl.mylibrary.utils.ToastUtils;
+
+import com.gyf.immersionbar.BarHide;
+import com.gyf.immersionbar.ImmersionBar;
+import com.wgl.tdlib.R;
+import com.wgl.tdlib.utils.ActivityUtil;
+import com.wgl.tdlib.utils.NetBroadcastReceiver;
+import com.wgl.tdlib.utils.PermissionTool;
+import com.wgl.tdlib.utils.RepeatClickUtils;
+import com.wgl.tdlib.utils.ToastUtils;
 
 import es.dmoral.toasty.Toasty;
 
@@ -32,7 +32,8 @@ import es.dmoral.toasty.Toasty;
  */
 
 
-public abstract class BaseActivity extends Activity implements NetBroadcastReceiver.NetChangeListener, PermissionTool.IPermissionsResult, View.OnTouchListener, View.OnClickListener {
+public abstract class BaseActivity extends Activity implements NetBroadcastReceiver.NetChangeListener, View.OnTouchListener, View.OnClickListener {
+    private final String TAG = this.getClass().getSimpleName();
     public static NetBroadcastReceiver.NetChangeListener netEvent;// 网络状态改变监听事件
     public Activity mContext;
 
@@ -40,18 +41,7 @@ public abstract class BaseActivity extends Activity implements NetBroadcastRecei
     protected void onCreate(@Nullable Bundle savedInstanceState) {
         mContext = this;
         super.onCreate(savedInstanceState);
-        hideBottomUIMenu();
-        // 隐藏标题栏
-     /*   if (getSupportActionBar() != null)
-            getSupportActionBar().hide();*/
-
-        /*// 沉浸效果
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.KITKAT) {
-            // 透明状态栏
-            getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_STATUS);
-            // 透明导航栏
-            getWindow().addFlags(WindowManager.LayoutParams.FLAG_TRANSLUCENT_NAVIGATION);
-        }*/
+//        hideBottomUIMenu();
 
         // 添加到Activity工具类
         ActivityUtil.getInstance().addActivity(this);
@@ -61,7 +51,17 @@ public abstract class BaseActivity extends Activity implements NetBroadcastRecei
 
         // 执行初始化方法
         init();
+        //初始化沉浸式
+        initImmersionBar();
     }
+
+    protected void initImmersionBar() {
+        //设置共同沉浸式样式
+        ImmersionBar.with(this)
+                .hideBar(BarHide.FLAG_HIDE_BAR) //隐藏状态栏和导航栏，不写默认不隐藏
+                .init();
+    }
+
 
     // 抽象 - 初始化方法，可以对数据进行初始化
     protected abstract void init();
@@ -74,9 +74,9 @@ public abstract class BaseActivity extends Activity implements NetBroadcastRecei
 
     @Override
     public void onClick(View view) {
-        if (RepeatClickUtils.avoidRepeatClick(view)){
+        if (RepeatClickUtils.avoidRepeatClick(view)) {
             singleOnclick(view);
-        }else {
+        } else {
             toastWarning(R.string.quick_onclick_msg);
         }
     }
@@ -139,49 +139,12 @@ public abstract class BaseActivity extends Activity implements NetBroadcastRecei
         return super.onKeyDown(keyCode, event);
     }
 
-    /**
-     * 权限检查方法，false代表没有该权限，ture代表有该权限
-     */
-    public void hasPermission(String... permissions) {
-//        for (String permission : permissions) {
-//            if (ContextCompat.checkSelfPermission(this, permission) != PackageManager.PERMISSION_GRANTED) {
-//                return false;
-//            }
-//        }
-//        return true;
-        PermissionTool.getInstance().chekPermissions(this, permissions, this);
-    }
-
 
     /**
      * 权限请求方法
      */
     public void requestPermission(int code, String... permissions) {
         ActivityCompat.requestPermissions(this, permissions, code);
-    }
-
-    /**
-     * 处理请求权限结果事件
-     *
-     * @param requestCode  请求码
-     * @param permissions  权限组
-     * @param grantResults 结果集
-     */
-    @Override
-    public void onRequestPermissionsResult(int requestCode, @NonNull String[] permissions, @NonNull int[] grantResults) {
-        super.onRequestPermissionsResult(requestCode, permissions, grantResults);
-//        doRequestPermissionsResult(requestCode, grantResults);
-        PermissionTool.getInstance().onRequestPermissionsResult(this, requestCode, permissions, grantResults);
-
-    }
-
-    /**
-     * 处理请求权限结果事件
-     *
-     * @param requestCode  请求码
-     * @param grantResults 结果集
-     */
-    public void doRequestPermissionsResult(int requestCode, @NonNull int[] grantResults) {
     }
 
     /**
@@ -299,7 +262,7 @@ public abstract class BaseActivity extends Activity implements NetBroadcastRecei
         runOnUiThread(new Runnable() {
             @Override
             public void run() {
-                Drawable icon = getResources().getDrawable(R.drawable.ic_pets_white_48dp);
+                @SuppressLint("UseCompatLoadingForDrawables") Drawable icon = getResources().getDrawable(R.drawable.ic_pets_white_48dp);
                 Toasty.normal(mContext, msg, icon).show();
             }
         });
@@ -311,7 +274,7 @@ public abstract class BaseActivity extends Activity implements NetBroadcastRecei
             @Override
             public void run() {
                 String msg = getResources().getString(msgId);
-                Drawable icon = getResources().getDrawable(R.drawable.ic_pets_white_48dp);
+                @SuppressLint("UseCompatLoadingForDrawables") Drawable icon = getResources().getDrawable(R.drawable.ic_pets_white_48dp);
                 Toasty.normal(mContext, msg, icon).show();
             }
         });

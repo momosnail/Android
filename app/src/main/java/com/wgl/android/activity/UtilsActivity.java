@@ -17,7 +17,7 @@ import com.chad.library.adapter.base.listener.OnItemChildClickListener;
 import com.wgl.android.R;
 import com.wgl.android.utils.TimeUtilsActivity;
 import com.wgl.android.adapter.UtilsAdapter;
-import com.wgl.mylibrary.activity.BaseActivity;
+import com.wgl.tdlib.activity.BaseActivity;
 
 import java.util.ArrayList;
 
@@ -26,9 +26,7 @@ import java.util.ArrayList;
  */
 public class UtilsActivity extends BaseActivity {
     private Activity mContext;
-    private String[] mPermissions = new String[]{Manifest.permission.WRITE_EXTERNAL_STORAGE, Manifest.permission.READ_EXTERNAL_STORAGE};
     public static ArrayList<String> arrayList = new ArrayList<>();
-    private int count = 0;
     private RecyclerView mRl;
     UtilsAdapter mAdapter;
     private TextView mTv_title;
@@ -48,13 +46,7 @@ public class UtilsActivity extends BaseActivity {
         mIv_return = findViewById(R.id.iv_return);
     }
 
-    @Override
-    public void passPermissons() { //权限通过
-        if (count == 0) {
-            ++count;
-            initData();
-        }
-    }
+
 
     private void initData() {
         initTitle();
@@ -83,10 +75,6 @@ public class UtilsActivity extends BaseActivity {
         }
     }
 
-    @Override
-    public void forbitPermissons() {
-
-    }
 
     private void initRecycleView() {
         arrayList.clear();

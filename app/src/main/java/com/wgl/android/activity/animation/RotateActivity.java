@@ -9,7 +9,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 import com.wgl.android.R;
-import com.wgl.mylibrary.activity.BaseActivity;
+import com.wgl.tdlib.activity.BaseActivity;
 
 public class RotateActivity extends BaseActivity {
 
@@ -52,15 +52,6 @@ public class RotateActivity extends BaseActivity {
         mTv_demonstration = findViewById(R.id.tv_demonstration);
     }
 
-    @Override
-    public void passPermissons() {
-
-    }
-
-    @Override
-    public void forbitPermissons() {
-
-    }
 
     /**
      * 初始化动画
@@ -85,15 +76,10 @@ public class RotateActivity extends BaseActivity {
     @Override
     public void singleOnclick(View view) {
         int id = view.getId();
-        switch (id) {
-            case R.id.iv_return:
-                finish();
-                break;
-            case R.id.tv_demonstration:
-                toastInfo("演示");
-                break;
-            default:
-                break;
+        if (id == R.id.iv_return) {
+            finish();
+        } else if (id == R.id.tv_demonstration) {
+            toastInfo("演示");
         }
     }
 }

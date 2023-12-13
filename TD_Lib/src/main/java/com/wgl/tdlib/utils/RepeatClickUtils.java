@@ -1,8 +1,8 @@
-package com.wgl.mylibrary.utils;
+package com.wgl.tdlib.utils;
 
 import android.view.View;
 
-import com.wgl.mylibrary.application.BaseApplication;
+import com.wgl.tdlib.application.BaseApplication;
 
 /**
  * 防重复点击工具类

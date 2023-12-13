@@ -13,7 +13,7 @@ import com.chad.library.adapter.base.BaseQuickAdapter;
 import com.chad.library.adapter.base.viewholder.BaseViewHolder;
 import com.wgl.android.R;
 
-public class MainAdapter extends BaseQuickAdapter<Pair<String,Class<?>>, BaseViewHolder> {
+public class ProtocolAdapter extends BaseQuickAdapter<Pair<String,Class<?>>, BaseViewHolder> {
     final float scale = 0.9f;
     final long duration = 150;
     private Activity mActivity;
@@ -23,7 +23,7 @@ public class MainAdapter extends BaseQuickAdapter<Pair<String,Class<?>>, BaseVie
 
     }*/
 
-    public MainAdapter(Activity activity) {
+    public ProtocolAdapter(Activity activity) {
         super(R.layout.main_item);
         mActivity = activity;
     }

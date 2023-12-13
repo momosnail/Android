@@ -1,11 +1,11 @@
-package com.wgl.mylibrary.utils;
+package com.wgl.tdlib.utils;
 
 import android.content.Context;
 import android.content.SharedPreferences;
 import android.text.TextUtils;
 
 import com.google.gson.Gson;
-import com.wgl.mylibrary.application.BaseApplication;
+import com.wgl.tdlib.application.BaseApplication;
 
 public class SPUtils {
 

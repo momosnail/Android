@@ -1,11 +1,11 @@
-package com.wgl.mylibrary.utils;
+package com.wgl.tdlib.utils;
 
 import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.net.ConnectivityManager;
 
-import com.wgl.mylibrary.activity.BaseActivity;
+import com.wgl.tdlib.activity.BaseActivity;
 
 
 /**
